@@ -7,25 +7,28 @@
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
 </head>
 <body>
- <br/>
- <br/>
- <br/>
- <br/>
- <br/>
- <br/>
- <br/>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 <div align="center"> 
-<button id="mybutton" class="btn btn-success btn-lg">
-<span class="ui-button-text">Turn On</span>
-</button></div>
+  <button id="mybutton" class="btn btn-success btn-lg">
+    <span class="ui-button-text">Turn On</span>
+  </button>
+</div>
 <br/>
 <div align="center">
-<div id="slider-vertical" style="height:200px;"></div>
-<br/>
-<div id="current">Ampere value: <span class="current-value">0</div>	
+  <div id="slider-vertical" style="height:200px;"></div>
+  <br/>
+  <div id="current">Ampere value: 
+    <span class="current-value">0</span>
+  </div>	
 </div>
-
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
@@ -33,57 +36,55 @@
 <script>
 $(document).ready(function(){
 
-    $('#mybutton').click(function() { 
-	if($("#mybutton span").text() == "Turn On"){
+  $('#mybutton').click(function() { 
+	  if($("#mybutton span").text() == "Turn On"){
         $.ajax({
             url: 'control/on',
             type: 'POST',
             data: {'turnon':true}, // An object with the key 'submit' and value 'true;
             success: function (result) {
                 console.log(result)
-		$("#mybutton").removeClass("btn-success")
-		$("#mybutton").addClass("btn-danger")
-	 	$("#mybutton span").text("Turn Off")   
+		            $("#mybutton").removeClass("btn-success")
+		            $("#mybutton").addClass("btn-danger")
+	 	            $("#mybutton span").text("Turn Off")   
             }
         });
-	}
-	else{
-	 $.ajax({
+	 }
+	 else{
+	      $.ajax({
             url: 'control/on',
             type: 'POST',
             data: {'turnon':false}, // An object with the key 'submit' and value$
             success: function (result) {
                 console.log(result)
-		$("#mybutton").removeClass("btn-danger")
-		$("#mybutton").addClass("btn-success")
+		            $("#mybutton").removeClass("btn-danger")
+		            $("#mybutton").addClass("btn-success")
                 $("#mybutton span").text("Turn On")
             }
         });
-	}
-    });
+	 }
+  });
 
-      var wsUri1 = "ws://10.10.1.17:8080/ws/slide";
-      var wsUri2 = "ws://10.10.1.17:8080/ws/current";
-      websocket1 = new WebSocket(wsUri1);
-      websocket2 = new WebSocket(wsUri2);
+  var wsUri1 = "ws://10.10.1.17:8080/ws/slide";
+  var wsUri2 = "ws://10.10.1.17:8080/ws/current";
+  websocket1 = new WebSocket(wsUri1);
+  websocket2 = new WebSocket(wsUri2);
 
-      websocket2.onmessage = function(event){
-	console.log(event.data)
+  websocket2.onmessage = function(event) {
 	 $("#current span").text(event.data)
-      }
+  }
 
-      $( "#slider-vertical" ).slider({
-      orientation: "vertical",
-      range: "min",
-      min: 0,
-      max: 1,
-      value: 0,
-      step: 0.1,
-      slide: function( event, ui ) {
-             websocket1.send(ui.value)
-      }
-    });
-
+  $( "#slider-vertical" ).slider({
+    orientation: "vertical",
+    range: "min",
+    min: 0,
+    max: 1,
+    value: 0,
+    step: 0.1,
+    slide: function( event, ui ) {
+         websocket1.send(ui.value)
+    }
+  });
 });
 </script>
  
