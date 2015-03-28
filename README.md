@@ -29,7 +29,7 @@ to start the web:
 #Testing
 Still no unit testing for this project.
 
-#Electrical Circuit
+#Electrical Schematic
 Still in progress for drawing
 
 #Contribute
