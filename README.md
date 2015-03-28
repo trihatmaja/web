@@ -16,7 +16,7 @@ The feature will be added for the future:
    and analitics using API or Socket programming.
 
 #How to run
-Several items that being use in this, make sure you have install this before 
+Several items that being use in this project, make sure you have install this before 
 running:
  1. go language
  2. gorilla mux (http://www.gorillatoolkit.org/pkg/mux)
