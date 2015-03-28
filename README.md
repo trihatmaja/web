@@ -1,6 +1,5 @@
 ## README
 =========
-
 This is web interface for home automation using raspberry pi and golang project.
 Feature:
 1. Turn On and Off.
@@ -19,7 +18,6 @@ the feature will be added for the future:
 
 ## How to run
 =============
-
 several items that being use in this, make sure you have install this before 
 running:
 1. go language
@@ -32,15 +30,12 @@ to start the web:
 
 ## Testing
 ==========
-
 still no unit testing for this project.
 
 ## Electrical Circuit
 ==========
-
 still in progress for drawing
 
 ## Contribute
 =============
-
 contact me
