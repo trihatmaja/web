@@ -30,7 +30,21 @@ to start the web:
 Still no unit testing for this project.
 
 #Electrical Schematic
-Still in progress for drawing
+See Circuit Folder
+
+Component:
+ 1. Triac BT139
+ 2. Triac driver MOC3021
+ 3. Zero Crossing H11A1 or H11AA1
+ 4. Resistor 1k ohm 1 watt (the value depend on the current but minimum 1 watt)
+ 5. Fuse 3 amps/ 4 amps
+ 6. Lamp 5 watt for test
+ 7. Bridge Rectifier KBJ408G (if using H11A1)
+
+#Beware
+Careful with the electrical component, make sure it all safe!!! You playing with 110v/220v voltage line..
+Careful..
+Careful..
 
 #Contribute
 Contact me
