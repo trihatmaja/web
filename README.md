@@ -40,6 +40,10 @@ Component:
  5. Fuse 3 amps/ 4 amps
  6. Lamp 5 watt for test
  7. Bridge Rectifier KBJ408G (if using H11A1)
+ 8. Tap the current using ACS712 module, connect the VCC to 5v
+ 9. Convert the ACS712 value to digital value using PCF8591 AD/DA converter, connect the VCC to 5v
+ 10. Use level shifter module to convert 5v to 3.3v before connect th PCF8591 to Raspberry Pi I2C interface
+
 
 #Beware
 Careful with the electrical component, make sure it all safe!!! You playing with 110v/220v voltage line..
